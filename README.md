@@ -1,21 +1,21 @@
-# docker-nebliod
-Docker Containers for nebliod
+# docker-macpuffinsd
+Docker Containers for macpuffinsd
 
-neblioteam/buildpack-deps: A base Ubuntu 16.04 docker container with dependencies installed to build nebliod
+macpuffins/buildpack-deps: A base Ubuntu 16.04 docker container with dependencies installed to build macpuffinsd
 
-neblioteam/nebliod-build: A container for building the latest version of nebliod, and then syncing and saving the blockchain
+macpuffins/macpuffinsd-build: A container for building the latest version of macpuffinsd, and then syncing and saving the blockchain
 
-neblioteam/nebliod: The main nebliod container that end users will use. Instantly launches and starts nebliod with a fully-synced blockchain.
+macpuffins/macpuffinsd: The main macpuffinsd container that end users will use. Instantly launches and starts macpuffinsd with a fully-synced blockchain.
 
-neblioteam/nebliod-testnet: Instantly launches and starts nebliod with a fully-synced blockchain on testnet.
+macpuffins/macpuffinsd-testnet: Instantly launches and starts macpuffinsd with a fully-synced blockchain on testnet.
 
 Quick Start
 ===========
 
 Prerequisites: Any system with docker installed. https://docs.docker.com/engine/installation/
 
-To launch a fully functional nebliod node, with QuickSync simply run the following command:
+To launch a fully functional macpuffinsd node, with QuickSync simply run the following command:
 
-    sudo docker run -i -t --rm --name nebliod -v $HOME/neblio-data:/root/.neblio -p 6325:6325 neblioteam/nebliod
+    sudo docker run -i -t --rm --name macpuffinsd -v $HOME/macpuffins-data:/root/.macpuffins -p 6325:6325 macpuffins/macpuffinsd
 
-Blockchain data and nebliod configuration files will be persistently stored on the local machine at $HOME/neblio-data
+Blockchain data and macpuffinsd configuration files will be persistently stored on the local machine at $HOME/macpuffins-data
