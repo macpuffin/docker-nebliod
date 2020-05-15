@@ -8,7 +8,7 @@ COPY --from=macpuffin/macpuffinsd-build:latest /bin/macpuffinsd /bin/macpuffinsd
 ADD ./bin /usr/local/bin
 RUN chmod 755 /usr/local/bin/macpuffins_init /usr/local/bin/run_macpuffins
 
-EXPOSE 6325 6326
+EXPOSE 1784 1820
 
 VOLUME /root/.macpuffins
 
