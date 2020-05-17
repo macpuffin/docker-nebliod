@@ -1,4 +1,4 @@
-FROM neblioteam/buildpack-deps-rpi:latest
+FROM macpuffins/buildpack-deps-rpi:latest
 MAINTAINER macpuffins <dev@macpuffins.com>
 
 
