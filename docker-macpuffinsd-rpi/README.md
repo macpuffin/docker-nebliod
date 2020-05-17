@@ -1,4 +1,4 @@
-# docker-nebliod-testnet
+# docker-macpuffinsd-testnet
 Docker Containers for macpuffinsd - testnet
 
 macpuffins/buildpack-deps: A base Ubuntu 16.04 docker container with dependencies installed to build macpuffinsd
