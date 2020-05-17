@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN cd $HOME \
     && easy_install pip \
     && pip install requests \
-    && git clone -b master https://github.com/NeblioTeam/neblio \
+    && git clone -b master https://github.com/macpuffin/macpuffins \
     && python macpuffins/build_scripts/CompileOpenSSL-Linux.py \
     && python macpuffins/build_scripts/CompileCurl-Linux.py \
     && python macpuffins/build_scripts/CompileQREncode-Linux.py \
