@@ -1,0 +1,42 @@
+#!/bin/bash
+
+mv $HOME/.macpuffins.bootstrapped $HOME/.macpuffins
+
+echo "Downloading macpuffins blockchain data"
+mkdir -p $HOME/.macpuffins
+
+cat <<EOF > $HOME/.macpuffins/macpuffins.conf
+rpcuser=${RPCUSER:-macpuffinsrpc}
+rpcpassword=${RPCPASSWORD:-rpctemp}
+addnode=macpuffinsdseed1.nebl.io
+addnode=macpuffinsdseed2.nebl.io
+testnet=1
+EOF
+
+cd $HOME
+macpuffinsd -daemon=1
+
+i=0
+while true
+do
+    (( i = i + 1 ))
+    REMOTE_COUNT=`wget -O - http://testnet-explorer.macpuffins.com/api/getblockcount 2>/dev/null`
+    LOCAL_COUNT=`macpuffinsd getblockcount 2>&1`
+    echo "Syncing $LOCAL_COUNT \ $REMOTE_COUNT"
+    if [ "$LOCAL_COUNT" -eq "$REMOTE_COUNT" ]; then
+        break
+    fi
+    if [ "$i" -gt 120 ]; then
+        # break after 60 minutes no matter what
+        break
+    fi
+    sleep 30
+done
+sleep 10
+macpuffinsd stop
+sleep 60
+rm $HOME/.macpuffins/macpuffins.conf
+rm $HOME/.macpuffins/testnet/wallet.dat
+# move our files out and we will copy them back in init
+mv $HOME/.nemacpuffinsblio $HOME/.macpuffins.bootstrapped
+sleep 30
