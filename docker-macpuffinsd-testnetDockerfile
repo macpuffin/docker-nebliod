@@ -1,0 +1,16 @@
+FROM ubuntu:bionic
+MAINTAINER macpuffin <dev@macpuffins.com>
+
+RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y ca-certificates
+
+COPY --from=macpuffin/macpuffinsd-build:latest /bin/macpuffinsd /bin/macpuffinsd
+COPY --from=macpuffin/macpuffinsd-sync-testnet:latest /root/.macpuffins.bootstrapped /root/.macpuffins.bootstrapped
+
+ADD ./bin /usr/local/bin
+RUN chmod 755 /usr/local/bin/macpuffins_init /usr/local/bin/run_macpuffins
+
+EXPOSE 1784 1820
+
+VOLUME /root/.macpuffins
+
+CMD ["run_macpuffins"]
