@@ -8,8 +8,8 @@ mkdir -p $HOME/.macpuffins
 cat <<EOF > $HOME/.macpuffins/macpuffins.conf
 rpcuser=${RPCUSER:-macpuffinsrpc}
 rpcpassword=${RPCPASSWORD:-rpctemp}
-addnode=macpuffinsdseed1.nebl.io
-addnode=macpuffinsdseed2.nebl.io
+addnode=macpuffinsdseed1.macpuffins.com
+addnode=macpuffinsdseed2.macpuffins.com
 testnet=1
 EOF
 
@@ -38,5 +38,5 @@ sleep 60
 rm $HOME/.macpuffins/macpuffins.conf
 rm $HOME/.macpuffins/testnet/wallet.dat
 # move our files out and we will copy them back in init
-mv $HOME/.nemacpuffinsblio $HOME/.macpuffins.bootstrapped
+mv $HOME/.macpuffins $HOME/.macpuffins.bootstrapped
 sleep 30
