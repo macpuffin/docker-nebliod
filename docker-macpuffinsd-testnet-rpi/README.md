@@ -12,7 +12,7 @@ Quick Start
 
 Prerequisites: Any system with docker installed. https://docs.docker.com/engine/installation/
 
-To launch a fully functional nebliod node, with QuickSync simply run the following command:
+To launch a fully functional macpuffinsd node, with QuickSync simply run the following command:
 
     sudo docker run -i -t --rm --name macpuffinsd-testnet -v $HOME/macpuffins-data-testnet:/root/.macpuffins -p 18200:18200 macpuffin/macpuffinsd-testnet
 
