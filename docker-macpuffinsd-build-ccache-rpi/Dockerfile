@@ -20,7 +20,7 @@ ENTRYPOINT cd $HOME \
     && if [ "$BUILD" = "macpuffinsd" ]; then strip macpuffinsd; fi \
     && if [ "$BUILD" = "macpuffinsd" ]; then cp ./macpuffinsd /root/vol/deploy/macpuffinsd; fi \
     && if [ "$BUILD" = "macpuffins-qt" ]; then cd /root/vol; fi \
-    && if [ "$BUILD" = "macpuffins-qt" ]; then qmake "USE_UPNP=1" "USE_QRCODE=1" "RELEASE=1" "OPENSSL_INCLUDE_PATH=$HOME/openssl_build/include/" "OPENSSL_LIB_PATH=$HOME/openssl_build/lib/" "PKG_CONFIG_PATH=$HOME/curl_build/lib/pkgconfig/" "QRENCODE_INCLUDE_PATH=$HOME/qrencode_build/include/" "QRENCODE_LIB_PATH=$HOME/qrencode_build/lib/" "BOOST_INCLUDE_PATH=$(pwd)/boost_build/include/" "BOOST_LIB_PATH=$(pwd)/boost_build/lib/" neblio-wallet.pro; fi \
+    && if [ "$BUILD" = "macpuffins-qt" ]; then qmake "USE_UPNP=1" "USE_QRCODE=1" "RELEASE=1" "OPENSSL_INCLUDE_PATH=$HOME/openssl_build/include/" "OPENSSL_LIB_PATH=$HOME/openssl_build/lib/" "PKG_CONFIG_PATH=$HOME/curl_build/lib/pkgconfig/" "QRENCODE_INCLUDE_PATH=$HOME/qrencode_build/include/" "QRENCODE_LIB_PATH=$HOME/qrencode_build/lib/" "BOOST_INCLUDE_PATH=$(pwd)/boost_build/include/" "BOOST_LIB_PATH=$(pwd)/boost_build/lib/" macpuffins-wallet.pro; fi \
     && if [ "$BUILD" = "macpuffins-qt" ]; then make -B -w -j2; fi \
     && if [ "$BUILD" = "macpuffins-qt" ]; then cp ./wallet/macpuffins-qt /root/vol/deploy/macpuffins-qt; fi \
     && if [ "$BUILD" = "tests-macpuffins-qt" ]; then cd /root/vol; fi \
